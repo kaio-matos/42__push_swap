@@ -17,7 +17,7 @@ RM					= rm -rf
 
 NAME				= push_swap
 CCF_INCL_MANDATORY	= -I ./$(SRC_DIR)/$(MANDATORY_DIR)/includes -I $(LIBFT_DIR)
-C_FILES_MANDATORY	= main.c list/ft_lstnew.c list/ft_lstadd_front.c
+C_FILES_MANDATORY	= main.c list/ft_lstnew.c list/ft_lstadd_front.c list/ft_lstsize.c list/ft_lstlast.c list/ft_lstadd_back.c list/ft_lstdelone.c list/ft_lstclear.c list/ft_lstiter.c list/ft_lstmap.c
 FILES_MANDATORY		= $(addprefix $(MANDATORY_DIR)/,$(C_FILES_MANDATORY))
 SRCS_MANDATORY		= $(addprefix src/,$(FILES_MANDATORY))
 OBJS_MANDATORY		= $(addprefix $(OBJS_DIR)/,$(FILES_MANDATORY:.c=.o))
