@@ -6,13 +6,14 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/11 20:53:05 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/13 20:34:28 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LINKED_LIST_H
 # define LINKED_LIST_H
 # include <stdlib.h>
+# include <libft.h>
 
 /******************************************************************************\
 * LINKED LIST																   *
@@ -117,5 +118,13 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * @return The new list. NULL if the allocation fails.
  */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/**
+ * @brief Print the node assuming the int type for the content
+ * 
+ * @param list Node to be printed
+ * @return
+ */
+void	ft_lstprint(t_list *list);
 
 #endif

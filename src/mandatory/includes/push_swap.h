@@ -6,14 +6,14 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/10 20:19:55 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/13 20:34:37 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-#include <linked_list.h>
-#include <stdio.h>// remove later
+# include <linked_list.h>
+# include <libft.h>
 
 /******************************************************************************\
 * STACK																		   *
