@@ -17,7 +17,7 @@ RM					= rm -rf
 
 NAME				= push_swap
 CCF_INCL_MANDATORY	= -I ./$(SRC_DIR)/$(MANDATORY_DIR)/includes -I $(LIBFT_DIR)
-C_LINKED_LISTS = list/ft_lstnew.c list/ft_lstadd_front.c list/ft_lstsize.c list/ft_lstlast.c list/ft_lstadd_back.c list/ft_lstdelone.c list/ft_lstclear.c list/ft_lstiter.c list/ft_lstmap.c list/ft_lstprint.c
+C_LINKED_LISTS = list/singly/ft_lstnew.c list/singly/ft_lstadd_front.c list/singly/ft_lstsize.c list/singly/ft_lstlast.c list/singly/ft_lstadd_back.c list/singly/ft_lstdelone.c list/singly/ft_lstclear.c list/singly/ft_lstiter.c list/singly/ft_lstmap.c list/singly/ft_lstprint.c
 C_DOUBLY_LINKED_LISTS = list/doubly/ft_dlstnew.c list/doubly/ft_dlstadd_front.c list/doubly/ft_dlstadd_begin.c list/doubly/ft_dlstfirst.c list/doubly/ft_dlstlast.c list/doubly/ft_dlstadd_back.c list/doubly/ft_dlstsize.c list/doubly/ft_dlstdelone.c list/doubly/ft_dlstclear.c list/doubly/ft_dlstmap.c list/doubly/ft_dlstiter.c list/doubly/ft_dlstprint.c
 C_FILES_MANDATORY	= main.c $(C_LINKED_LISTS) $(C_DOUBLY_LINKED_LISTS)
 FILES_MANDATORY		= $(addprefix $(MANDATORY_DIR)/,$(C_FILES_MANDATORY))

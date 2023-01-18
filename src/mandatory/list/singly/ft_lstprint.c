@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:08:05 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/17 21:51:00 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/17 21:57:09 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_lstprint(t_list *list)
 		ft_lstnprint(list);
 		return ;
 	}
+	temp = list;
 	while (temp)
 	{
 		ft_lstnprint(temp);
