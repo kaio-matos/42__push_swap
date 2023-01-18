@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_dlstclear.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:20:28 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/17 21:32:02 by kmatos-s         ###   ########.fr       */
+/*   Created: 2023/01/17 20:15:20 by kmatos-s          #+#    #+#             */
+/*   Updated: 2023/01/17 20:42:47 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_dlstclear(t_dlist **lst, void (*del)(void *))
 {
-	if (!new)
+	t_dlist	*temp;
+	t_dlist	*current;
+
+	if (!lst || !del)
 		return ;
-	if (!*lst)
+	current = (*lst)->prev;
+	while (current)
 	{
-		*lst = new;
-		return ;
+		temp = current->prev;
+		ft_dlstdelone(current, del);
+		current = temp;
 	}
-	new->next = *lst;
-	*lst = new;
+	current = (*lst)->next;
+	while (current)
+	{
+		temp = current->next;
+		ft_dlstdelone(current, del);
+		current = temp;
+	}
+	ft_dlstdelone((*lst), del);
+	*lst = NULL;
 }

@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_dlstsize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:20:28 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/17 21:32:02 by kmatos-s         ###   ########.fr       */
+/*   Created: 2023/01/10 20:42:29 by kmatos-s          #+#    #+#             */
+/*   Updated: 2023/01/17 20:14:08 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_dlstsize(t_dlist *lst)
 {
-	if (!new)
-		return ;
-	if (!*lst)
+	t_dlist	*current_list;
+	int		counter;
+
+	counter = 0;
+	if (!lst)
+		return (counter);
+	current_list = lst;
+	while (current_list != NULL)
 	{
-		*lst = new;
-		return ;
+		counter++;
+		current_list = current_list->prev;
 	}
-	new->next = *lst;
-	*lst = new;
+	current_list = lst->next;
+	while (current_list != NULL)
+	{
+		counter++;
+		current_list = current_list->next;
+	}
+	return (counter);
 }

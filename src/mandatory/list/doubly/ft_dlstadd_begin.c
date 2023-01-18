@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_dlstadd_begin.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:20:28 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/17 21:32:02 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/17 21:09:30 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_dlstadd_begin(t_dlist **lst, t_dlist *new)
 {
+	t_dlist	*first;
+
 	if (!new)
 		return ;
 	if (!*lst)
@@ -21,6 +23,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	new->next = *lst;
-	*lst = new;
+	first = ft_dlstfirst(*lst);
+	first->prev = new;
+	new->next = first;
 }

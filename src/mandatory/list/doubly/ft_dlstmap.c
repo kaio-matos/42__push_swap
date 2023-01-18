@@ -1,37 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstprint.c                                      :+:      :+:    :+:   */
+/*   ft_dlstmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:08:05 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/17 21:51:00 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/17 21:11:53 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ft_lstnprint(t_list *list)
+t_dlist	*ft_dlstmap(t_dlist *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (!list) {
-		ft_printf("{ (nil) }\n");
-		return ;
-	}
-	ft_printf("{ address: %p, content: %i, next: %p }\n", list, *(int*)list->content, list->next);
-}
+	t_dlist	*result;
+	t_dlist	*temp;
+	t_dlist	*changed_node;
 
-void	ft_lstprint(t_list *list)
-{
-	t_list	*temp;
-
-	if (!list) {
-		ft_lstnprint(list);
-		return ;
-	}
+	result = NULL;
+	if (!lst || !f || !del)
+		return (result);
+	temp = lst;
 	while (temp)
 	{
-		ft_lstnprint(temp);
+		changed_node = ft_dlstnew(f(temp->content));
+		if (!changed_node)
+		{
+			ft_dlstclear(&changed_node, del);
+			return (NULL);
+		}
+		ft_dlstadd_front(&result, changed_node);
+		temp = temp->prev;
+	}
+	temp = lst->next;
+	while (temp)
+	{
+		changed_node = ft_dlstnew(f(temp->content));
+		if (!changed_node)
+		{
+			ft_dlstclear(&changed_node, del);
+			return (NULL);
+		}
+		ft_dlstadd_back(&result, changed_node);
 		temp = temp->next;
 	}
+	return (result);
 }

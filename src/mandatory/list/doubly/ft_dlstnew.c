@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_dlstnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:20:28 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/17 21:32:02 by kmatos-s         ###   ########.fr       */
+/*   Created: 2023/01/10 20:08:05 by kmatos-s          #+#    #+#             */
+/*   Updated: 2023/01/13 21:49:13 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_dlist	*ft_dlstnew(void *content)
 {
-	if (!new)
-		return ;
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	new->next = *lst;
-	*lst = new;
+	t_dlist	*list;
+	
+	list = malloc(sizeof(t_dlist));
+	if (!list)
+		return (NULL);
+	list->content = content;
+	list->next = NULL;
+	list->prev = NULL;
+	return (list);
 }

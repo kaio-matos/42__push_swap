@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_dlstprint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/10 20:20:28 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/17 21:32:02 by kmatos-s         ###   ########.fr       */
+/*   Created: 2023/01/10 20:08:05 by kmatos-s          #+#    #+#             */
+/*   Updated: 2023/01/17 21:50:39 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_dlstnprint(t_dlist *list)
 {
-	if (!new)
-		return ;
-	if (!*lst)
-	{
-		*lst = new;
+	if (!list) {
+		ft_printf("{ (nil) }\n");
 		return ;
 	}
-	new->next = *lst;
-	*lst = new;
+	ft_printf("{ address: %p, content: %i, prev: %p, next: %p }\n", list, *(int*)list->content, list->prev, list->next);
+}
+
+void	ft_dlstprint(t_dlist *list)
+{
+	t_dlist	*temp;
+
+	if (!list) {
+		ft_dlstnprint(list);
+		return ;
+	}
+	temp = ft_dlstfirst(list);
+	while (temp)
+	{
+		ft_dlstnprint(temp);
+		temp = temp->next;
+	}
 }

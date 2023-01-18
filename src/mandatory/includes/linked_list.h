@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/13 20:34:28 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/17 21:52:13 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct s_list
 {
-	void	*content;
+	void			*content;
 	struct	s_list *next;
 }	t_list;
 
@@ -75,7 +75,9 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
  * the node’s content using the function ’del’ given
  * as a parameter and free the node. The memory of
  * ’next’ must not be freed.
- * 
+ *
+ * @note THIS FUNCTION DOES NOT HANDLE RELINKS
+ *
  * @param lst The node to free.
  * @param del The address of the function used to delete the content.
  * @return
@@ -88,7 +90,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
  * and free(3).
  * Finally, the pointer to the list must be set to
  * NULL.
- * 
+ *
  * @param lst The address of a pointer to a node.
  * @param del The address of the function used to delete the content of the node.
  * @return
@@ -98,7 +100,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 /**
  * @brief Iterates the list ’lst’ and applies the function
  * ’f’ on the content of each node.
- * 
+ *
  * @param lst The address of a pointer to a node.
  * @param f The address of the function used to iterate on the list.
  * @return
@@ -111,7 +113,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * list resulting of the successive applications of
  * the function ’f’. The ’del’ function is used to
  * delete the content of a node if needed.
- * 
+ *
  * @param lst The address of a pointer to a node.
  * @param f The address of the function used to iterate on the list.
  * @param del The address of the function used to delete the content of a node if needed.
@@ -121,10 +123,43 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /**
  * @brief Print the node assuming the int type for the content
- * 
+ *
  * @param list Node to be printed
  * @return
  */
+void	ft_lstnprint(t_list *list);
+
+/**
+ * @brief Print the entire list assuming the int type for the content
+ *
+ * @param list The list to be printed
+ * @return
+ */
 void	ft_lstprint(t_list *list);
+
+/******************************************************************************\
+* DOUBLY LINKED LIST														   *
+\******************************************************************************/
+
+typedef struct s_dlist
+{
+	void			*content;
+	struct	s_dlist *next;
+	struct	s_dlist *prev;
+}	t_dlist;
+
+t_dlist	*ft_dlstnew(void *content);
+void	ft_dlstadd_front(t_dlist **lst, t_dlist *new);
+void	ft_dlstadd_begin(t_dlist **lst, t_dlist *new);
+void	ft_dlstadd_back(t_dlist **lst, t_dlist *new);
+t_dlist	*ft_dlstlast(t_dlist *lst);
+t_dlist	*ft_dlstfirst(t_dlist *lst);
+int		ft_dlstsize(t_dlist *lst);
+void	ft_dlstdelone(t_dlist *lst, void (*del)(void *));
+void	ft_dlstclear(t_dlist **lst, void (*del)(void *));
+void	ft_dlstiter(t_dlist *lst, void (*f)(void *));
+t_dlist	*ft_dlstmap(t_dlist *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_dlstnprint(t_dlist *list);
+void	ft_dlstprint(t_dlist *list);
 
 #endif
