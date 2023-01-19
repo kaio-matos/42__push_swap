@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:41:38 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/18 19:49:03 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/19 19:59:27 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,16 @@ t_stack	*ft_stkpush(t_stack *stack, void *content)
 	new_node = ft_dlstnew(content);
 	if (!new_node)
 		return (NULL);
-	ft_dlstadd_back(&stack->head, new_node);
-	stack->head = stack->head->next;
+	if (stack->size == 0 || !stack->head || !stack->foot)
+	{
+		stack->head = new_node;
+		stack->foot = stack->head;
+	}
+	else
+	{
+		ft_dlstadd_back(&stack->head, new_node);
+		stack->head = stack->head->next;
+	}
 	stack->size += 1;
 	return (stack);
 }

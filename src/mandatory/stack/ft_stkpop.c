@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:41:38 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/18 21:25:25 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/19 19:41:04 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ void	ft_stkpop(t_stack *stack, void (*del)(void *))
 	temp_head_prev = stack->head->prev;
 	ft_dlstdelone(stack->head, del);
 	stack->head = temp_head_prev;
-	if (!stack->size == 1)
+	if (stack->size > 1)
 	{
-		stack->size = 0;
+		stack->size -= 1;
 		return ;
 	}
-	stack->size -= 1;
+	stack->size = 0;
+	stack->head = NULL;
+	stack->foot = NULL;
 }

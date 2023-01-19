@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/18 21:31:16 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/19 19:39:07 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stack
 {
 	size_t	size;
 	t_dlist	*head;
+	t_dlist	*foot;
 }	t_stack;
 
 /**
@@ -67,12 +68,20 @@ void	ft_stkpop(t_stack *stack, void (*del)(void *));
 void	ft_stkclear(t_stack *stack, void (*del)(void *));
 
 /**
- * @brief Get the first element of the stack (the head)
+ * @brief Get the element that is in the top of the stack (the head)
  *
  * @param stack The stack to be analyzed
  * @return The stored content inside the head
  */
-void	*ft_stkpeek(t_stack *stack); // or top()
+void	*ft_stkpeek_head(t_stack *stack);
+
+/**
+ * @brief Get the element that is in the bottom of the stack (the foot)
+ *
+ * @param stack The stack to be analyzed
+ * @return The stored content inside the foot
+ */
+void	*ft_stkpeek_foot(t_stack *stack);
 
 /**
  * @brief Checks if the stack is empty
