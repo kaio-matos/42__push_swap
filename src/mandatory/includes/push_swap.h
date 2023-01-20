@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/19 20:31:35 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/19 21:34:33 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUSH_SWAP_H
 # include <linked_list.h>
 # include <libft.h>
+
+#define ERROR "Error\n"
 
 typedef enum	e_bool
 {
@@ -100,8 +102,8 @@ void	ft_stkprint(t_stack *stack);
 
 typedef struct s_push_swap
 {
-	t_stack	a;
-	t_stack	b;
+	t_stack	*a;
+	t_stack	*b;
 }	t_push_swap;
 
 /******************************************\
@@ -113,12 +115,18 @@ typedef struct s_push_swap
 //
 
 /**
+ * Swap the first 2 elements at the top of stack.
+ * Do nothing if there is only one or no elements.
+*/
+void	ft_stkswap(t_stack *stack);
+
+/**
  * swap a
  *
  * Swap the first 2 elements at the top of stack a.
  * Do nothing if there is only one or no elements.
 */
-void	sa(void);
+void	sa(t_push_swap *ps);
 
 /**
  * swap b
@@ -126,12 +134,12 @@ void	sa(void);
  * Swap the first 2 elements at the top of stack b.
  * Do nothing if there is only one or no elements.
 */
-void	sb(void);
+void	sb(t_push_swap *ps);
 
 /**
  * sa and sb at the same time.
 */
-void	ss(void);
+void	ss(t_push_swap *ps);
 
 
 //
@@ -194,5 +202,12 @@ void	rrb(void);
  * rra and rrb at the same time
 */
 void	rrr(void);
+
+/******************************************\
+* HELPERS								   *
+\******************************************/
+
+int		*new_int(int value);
+int		get_int(void *pointer);
 
 #endif

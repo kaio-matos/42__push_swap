@@ -22,8 +22,9 @@ C_LINKED_LISTS = list/singly/ft_lstnew.c list/singly/ft_lstadd_front.c list/sing
 C_DOUBLY_LINKED_LISTS = list/doubly/ft_dlstnew.c list/doubly/ft_dlstadd_front.c list/doubly/ft_dlstadd_begin.c list/doubly/ft_dlstfirst.c list/doubly/ft_dlstlast.c list/doubly/ft_dlstadd_back.c list/doubly/ft_dlstsize.c list/doubly/ft_dlstdelone.c list/doubly/ft_dlstclear.c list/doubly/ft_dlstmap.c list/doubly/ft_dlstiter.c list/doubly/ft_dlstprint.c
 C_STACK = stack/ft_stkclear.c stack/ft_stkis_empty.c stack/ft_stknew.c stack/ft_stkpeek.c stack/ft_stkpop.c stack/ft_stkprint.c stack/ft_stkpush.c
 C_OPERATIONS = operations/push.c operations/rotate.c operations/swap.c
+C_HELPERS = helpers/int.c
 
-C_FILES_MANDATORY	= main.c $(C_LINKED_LISTS) $(C_DOUBLY_LINKED_LISTS) $(C_STACK)
+C_FILES_MANDATORY	= main.c $(C_LINKED_LISTS) $(C_DOUBLY_LINKED_LISTS) $(C_STACK) $(C_OPERATIONS) $(C_HELPERS)
 FILES_MANDATORY		= $(addprefix $(MANDATORY_DIR)/,$(C_FILES_MANDATORY))
 SRCS_MANDATORY		= $(addprefix src/,$(FILES_MANDATORY))
 OBJS_MANDATORY		= $(addprefix $(OBJS_DIR)/,$(FILES_MANDATORY:.c=.o))
