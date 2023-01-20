@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/19 21:45:54 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/20 20:19:03 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,16 @@ typedef struct s_stack
 t_stack	*ft_stknew(void *content);
 
 /**
+ * Allocates (with malloc(3)) and initiate the stack passed pointer with NULL.
+ *
+ * @param stack The stack to be initiated
+ */
+void	ft_stkinit(t_stack **stack);
+
+/**
  * Adds a new item to the top of the stack,
  * replacing the current head to the new pushed element.
+ * If there is no head, the new element turns into the head.
  *
  * @param stack The stack to be modified
  * @param content value for the new element of the stack
@@ -118,7 +126,7 @@ typedef struct s_push_swap
  * Swap the first 2 elements at the top of stack.
  * Do nothing if there is only one or no elements.
 */
-void	ft_stkswap(t_stack *stack);
+t_bool	ft_stkswap(t_stack *stack);
 
 /**
  * swap a
@@ -126,7 +134,7 @@ void	ft_stkswap(t_stack *stack);
  * Swap the first 2 elements at the top of stack a.
  * Do nothing if there is only one or no elements.
 */
-void	sa(t_push_swap *ps);
+t_bool	sa(t_push_swap *ps);
 
 /**
  * swap b
@@ -134,19 +142,19 @@ void	sa(t_push_swap *ps);
  * Swap the first 2 elements at the top of stack b.
  * Do nothing if there is only one or no elements.
 */
-void	sb(t_push_swap *ps);
+t_bool	sb(t_push_swap *ps);
 
 /**
  * sa and sb at the same time.
 */
-void	ss(t_push_swap *ps);
+t_bool	ss(t_push_swap *ps);
 
 
 //
 // PUSH OPERATIONS
 //
 
-void	ft_stksend(t_stack *from, t_stack *to);
+t_bool	ft_stksend(t_stack *from, t_stack *to);
 
 /**
  * push a
@@ -154,7 +162,7 @@ void	ft_stksend(t_stack *from, t_stack *to);
  * Take the first element at the top of b and put it at the top of a.
  * Do nothing if b is empty.
 */
-void	pa(t_push_swap *ps);
+t_bool	pa(t_push_swap *ps);
 
 /**
  * push b
@@ -162,7 +170,7 @@ void	pa(t_push_swap *ps);
  * Take the first element at the top of a and put it at the top of b.
  * Do nothing if a is empty.
 */
-void	pb(t_push_swap *ps);
+t_bool	pb(t_push_swap *ps);
 
 //
 // ROTATION OPERATIONS
