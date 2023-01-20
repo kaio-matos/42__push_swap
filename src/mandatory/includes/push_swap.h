@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/19 21:34:33 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/19 21:45:54 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,13 +146,15 @@ void	ss(t_push_swap *ps);
 // PUSH OPERATIONS
 //
 
+void	ft_stksend(t_stack *from, t_stack *to);
+
 /**
  * push a
  *
  * Take the first element at the top of b and put it at the top of a.
  * Do nothing if b is empty.
 */
-void	pa(void);
+void	pa(t_push_swap *ps);
 
 /**
  * push b
@@ -160,7 +162,7 @@ void	pa(void);
  * Take the first element at the top of a and put it at the top of b.
  * Do nothing if a is empty.
 */
-void	pb(void);
+void	pb(t_push_swap *ps);
 
 //
 // ROTATION OPERATIONS

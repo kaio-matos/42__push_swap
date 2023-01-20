@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 20:32:17 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/19 21:34:32 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/19 21:37:38 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_stkswap(t_stack *stack)
 	int	content_head;
 	int	content_second;
 
-	if (!stack || !stack->head || !stack->foot || stack->size <= 1)
+	if (ft_stkis_empty(stack) || stack->size <= 1)
 		return ;
 	content_head = get_int(stack->head->content);
 	ft_stkpop(stack, &free);
