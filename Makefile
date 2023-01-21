@@ -3,10 +3,11 @@ OBJS_DIR			= objects
 SRC_DIR				= src
 MANDATORY_DIR		= mandatory
 BONUS_DIR			= bonus
+VERBOSE				= 0
 
 CC					= cc
-CCF_STRICT			= -Wall -Wextra -Werror
-CCF_DEBUG			= -g
+CCF_STRICT			= -Wall -Wextra -Werror -D VERBOSE=$(VERBOSE)
+CCF_DEBUG			= -g -D VERBOSE=$(VERBOSE)
 LIBFT				= $(LIBFT_DIR)/libft.a
 LIBS				= $(LIBFT)
 RM					= rm -rf
@@ -23,8 +24,9 @@ C_DOUBLY_LINKED_LISTS = list/doubly/ft_dlstnew.c list/doubly/ft_dlstadd_front.c 
 C_STACK = stack/ft_stkclear.c stack/ft_stkinit.c stack/ft_stkis_empty.c stack/ft_stknew.c stack/ft_stkpeek.c stack/ft_stkpop.c stack/ft_stkprint.c stack/ft_stkpush.c
 C_OPERATIONS = operations/push.c operations/rotate.c operations/swap.c
 C_HELPERS = helpers/int.c helpers/helpers.c
+C_ERROR = error/ft_exterr.c error/ft_prterr.c
 
-C_FILES_MANDATORY	= main.c $(C_LINKED_LISTS) $(C_DOUBLY_LINKED_LISTS) $(C_STACK) $(C_OPERATIONS) $(C_HELPERS)
+C_FILES_MANDATORY	= main.c $(C_LINKED_LISTS) $(C_DOUBLY_LINKED_LISTS) $(C_STACK) $(C_OPERATIONS) $(C_HELPERS) $(C_ERROR)
 FILES_MANDATORY		= $(addprefix $(MANDATORY_DIR)/,$(C_FILES_MANDATORY))
 SRCS_MANDATORY		= $(addprefix src/,$(FILES_MANDATORY))
 OBJS_MANDATORY		= $(addprefix $(OBJS_DIR)/,$(FILES_MANDATORY:.c=.o))
