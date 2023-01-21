@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 20:32:17 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/20 20:58:02 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/20 21:50:00 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_bool	sb(t_push_swap *ps)
 
 t_bool	ss(t_push_swap *ps)
 {
-	if (swap(ps->a) && swap(ps->b))
+	if (swap(ps->a) && swap(ps->b)) // TODO: Danger operation, can cause some issue by not executing the second operation
 		return (TRUE);
 	ft_printf("ss\n");
 	return (FALSE);
@@ -43,9 +43,9 @@ t_bool	swap(t_stack *stack)
 
 	if (ft_stkis_empty(stack) || stack->size <= 1)
 		return (TRUE);
-	content_head = get_int(stack->head->content);
+	content_head = get_int(ft_stkpeek_head(stack));
 	ft_stkpop(stack, &free);
-	content_second = get_int(stack->head->content);
+	content_second = get_int(ft_stkpeek_head(stack));
 	ft_stkpop(stack, &free);
 	ft_stkpush(stack, new_int(content_head));
 	ft_stkpush(stack, new_int(content_second));

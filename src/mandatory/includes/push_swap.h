@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/20 20:59:53 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/20 21:51:53 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ t_bool	swap(t_stack *stack);
 /**
  * swap a
  *
- * Swap the first 2 elements at the top of stack a.
+ * Swap the first 2 elements at the top of stack 'a'.
  * Do nothing if there is only one or no elements.
 */
 t_bool	sa(t_push_swap *ps);
@@ -141,7 +141,7 @@ t_bool	sa(t_push_swap *ps);
 /**
  * swap b
  *
- * Swap the first 2 elements at the top of stack b.
+ * Swap the first 2 elements at the top of stack 'b'.
  * Do nothing if there is only one or no elements.
 */
 t_bool	sb(t_push_swap *ps);
@@ -161,7 +161,7 @@ t_bool	send(t_stack *from, t_stack *to);
 /**
  * push a
  *
- * Take the first element at the top of b and put it at the top of a.
+ * Take the first element at the top of 'b' and put it at the top of 'a'.
  * Do nothing if b is empty.
  *
  * @note Assumes the type int for the content
@@ -171,7 +171,7 @@ t_bool	pa(t_push_swap *ps);
 /**
  * push b
  *
- * Take the first element at the top of a and put it at the top of b.
+ * Take the first element at the top of 'a' and put it at the top of 'b'.
  * Do nothing if a is empty.
 */
 t_bool	pb(t_push_swap *ps);
@@ -181,41 +181,69 @@ t_bool	pb(t_push_swap *ps);
 //
 
 /**
+ * Shift up all elements of the passed stack by 1
+ * The first element becomes the last one.
+ * Do nothing if there is only one or no elements.
+ *
+ * @note Assumes the type int for the content
+*/
+t_bool	rotate(t_stack *stack);
+
+/**
+ * Shift down all elements of the passed stack by 1
+ * The last element becomes the first one.
+ * Do nothing if there is only one or no elements.
+ *
+ * @note Assumes the type int for the content
+*/
+t_bool	reverse_rotate(t_stack *stack);
+
+/**
  * rotate a
  *
- * Shift up all elements of stack a by 1
+ * Shift up all elements of stack 'a' by 1
  * The first element becomes the last one.
+ * Do nothing if there is only one or no elements.
 */
-void	ra(void);
+t_bool	ra(t_push_swap *ps);
 
 /**
  * rotate b
  *
- * Shift up all elements of stack b by 1.
+ * Shift up all elements of stack 'b' by 1.
  * The first element becomes the last one
+ * Do nothing if there is only one or no elements.
 */
-void	rb(void);
+t_bool	rb(t_push_swap *ps);
+
+/**
+ * ra and rb at the same time.
+*/
+t_bool	rr(t_push_swap *ps);
+
 
 /**
  * reverse rotate a
  *
- * Shift down all elements of stack a by 1.
+ * Shift down all elements of stack 'a' by 1.
  * The last element becomes the first one.
+ * Do nothing if there is only one or no elements.
 */
-void	rra(void);
+t_bool	rra(t_push_swap *ps);
 
 /**
  * reverse rotate b
  *
- * Shift down all elements of stack b by 1.
+ * Shift down all elements of stack 'b' by 1.
  * The last element becomes the first one.
+ * Do nothing if there is only one or no elements.
 */
-void	rrb(void);
+t_bool	rrb(t_push_swap *ps);
 
 /**
  * rra and rrb at the same time
 */
-void	rrr(void);
+t_bool	rrr(t_push_swap *ps);
 
 /******************************************\
 * HELPERS								   *

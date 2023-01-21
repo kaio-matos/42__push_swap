@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 20:32:17 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/20 20:57:42 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/20 21:49:32 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_bool	send(t_stack *from, t_stack *to)
 
 	if (ft_stkis_empty(from))
 		return (TRUE);
-	content = get_int(from->head->content);
+	content = get_int(ft_stkpeek_head(from));
 	ft_stkpop(from, &free);
 	ft_stkpush(to, new_int(content));
 	return (FALSE);

@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:36:18 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/19 21:33:59 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/20 21:58:34 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,54 @@ int	main(int argc, char **argv, char **envp)
 		return (1);
 	}
 	initiate_stack(&ps->a, 0);
-	initiate_stack(&ps->b, 20);
+	ft_stkinit(&ps->b);
+
+	ft_stkprint(ps->a);
+	ft_printf("------\n");
+
+	sa(ps);
+	ft_stkprint(ps->a);
+	ft_stkprint(ps->b);
+	ft_printf("------\n");
+
+	pb(ps);
+	pb(ps);
+	pb(ps);
+	ft_stkprint(ps->a);
+	ft_stkprint(ps->b);
+	ft_printf("------\n");
+
+	ra(ps);
+	rb(ps);
+	ft_stkprint(ps->a);
+	ft_stkprint(ps->b);
+	ft_printf("------\n");
+
+	rra(ps);
+	rrb(ps);
+	ft_stkprint(ps->a);
+	ft_stkprint(ps->b);
+	ft_printf("------\n");
+
+	sa(ps);
+	ft_stkprint(ps->a);
+	ft_stkprint(ps->b);
+	ft_printf("------\n");
+
+	pa(ps);
+	pa(ps);
+	pa(ps);
+	ft_stkprint(ps->a);
+	ft_stkprint(ps->b);
+	ft_printf("------\n");
 }
 
 void	initiate_stack(t_stack **stack, int value)
 {
-	*stack = ft_stknew(new_int(5 + value));
-	ft_stkpush(*stack, new_int(10 + value));
-	ft_stkpush(*stack, new_int(15 + value));
-	ft_stkpush(*stack, new_int(25 + value));
+	*stack = ft_stknew(new_int(8 + value));
+	ft_stkpush(*stack, new_int(5 + value));
+	ft_stkpush(*stack, new_int(6 + value));
+	ft_stkpush(*stack, new_int(3 + value));
+	ft_stkpush(*stack, new_int(1 + value));
+	ft_stkpush(*stack, new_int(2 + value));
 }
