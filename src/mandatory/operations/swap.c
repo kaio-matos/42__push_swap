@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 20:32:17 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/20 19:40:14 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/20 20:58:02 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_bool	sa(t_push_swap *ps)
 {
-	if (ft_stkswap(ps->a))
+	if (swap(ps->a))
 		return (TRUE);
 	ft_printf("sa\n");
 	return (FALSE);
@@ -22,7 +22,7 @@ t_bool	sa(t_push_swap *ps)
 
 t_bool	sb(t_push_swap *ps)
 {
-	if (ft_stkswap(ps->b))
+	if (swap(ps->b))
 		return (TRUE);
 	ft_printf("sb\n");
 	return (FALSE);
@@ -30,13 +30,13 @@ t_bool	sb(t_push_swap *ps)
 
 t_bool	ss(t_push_swap *ps)
 {
-	if (ft_stkswap(ps->a) && ft_stkswap(ps->b))
+	if (swap(ps->a) && swap(ps->b))
 		return (TRUE);
 	ft_printf("ss\n");
 	return (FALSE);
 }
 
-t_bool	ft_stkswap(t_stack *stack)
+t_bool	swap(t_stack *stack)
 {
 	int	content_head;
 	int	content_second;

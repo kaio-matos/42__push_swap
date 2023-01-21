@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/20 20:19:03 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/20 20:59:53 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,10 @@ typedef struct s_push_swap
 /**
  * Swap the first 2 elements at the top of stack.
  * Do nothing if there is only one or no elements.
+ *
+ * @note Assumes the type int for the content
 */
-t_bool	ft_stkswap(t_stack *stack);
+t_bool	swap(t_stack *stack);
 
 /**
  * swap a
@@ -154,13 +156,15 @@ t_bool	ss(t_push_swap *ps);
 // PUSH OPERATIONS
 //
 
-t_bool	ft_stksend(t_stack *from, t_stack *to);
+t_bool	send(t_stack *from, t_stack *to);
 
 /**
  * push a
  *
  * Take the first element at the top of b and put it at the top of a.
  * Do nothing if b is empty.
+ *
+ * @note Assumes the type int for the content
 */
 t_bool	pa(t_push_swap *ps);
 
