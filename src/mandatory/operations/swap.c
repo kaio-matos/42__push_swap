@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 20:32:17 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/20 21:50:00 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/21 10:51:13 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_bool	sb(t_push_swap *ps)
 
 t_bool	ss(t_push_swap *ps)
 {
-	if (swap(ps->a) && swap(ps->b)) // TODO: Danger operation, can cause some issue by not executing the second operation
+	if (and(swap(ps->a), swap(ps->b)))
 		return (TRUE);
 	ft_printf("ss\n");
 	return (FALSE);

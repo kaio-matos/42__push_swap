@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/20 21:51:53 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/21 10:49:51 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,5 +251,6 @@ t_bool	rrr(t_push_swap *ps);
 
 int		*new_int(int value);
 int		get_int(void *pointer);
+t_bool	and(t_bool one, t_bool two);
 
 #endif
