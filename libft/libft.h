@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 15:44:33 by kmatos-s          #+#    #+#             */
-/*   Updated: 2022/12/06 20:25:22 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/23 20:55:40 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <fcntl.h>
+
+# define MAX_INT_LENGTH 10
 
 /* Black, Red, Green, Yellow, Blue, Purple, Cyan, White */
 # define SHELL_BK "\033[0;30m"
@@ -51,7 +53,7 @@
  * @param c
  * @return int Non-zero integer if `c` is an alpha character, if not returns 0
  */
-int		ft_isalpha(int c);
+int				ft_isalpha(int c);
 
 /**
  * @brief checks for a digit (0 through 9).
@@ -59,7 +61,8 @@ int		ft_isalpha(int c);
  * @param c
  * @return int Non-zero integer if `c` is an digit character, if not returns 0
  */
-int		ft_isdigit(int c);
+int				ft_isdigit(int c);
+int				ft_isinteger(char *string);
 
 /**
  * @brief checks for an alphanumeric character;
@@ -68,7 +71,7 @@ int		ft_isdigit(int c);
  * @param c
  * @return int Non-zero integer if `c` is an digit or character, if not returns 0
  */
-int		ft_isalnum(int c);
+int				ft_isalnum(int c);
 
 /**
  * @brief checks for an alphanumeric character;
@@ -77,7 +80,7 @@ int		ft_isalnum(int c);
  * @param c
  * @return int Non-zero integer if `c` is an digit or character, if not returns 0
  */
-int		ft_isascii(int c);
+int				ft_isascii(int c);
 
 /**
  * @brief checks for any printable character including space.
@@ -86,7 +89,7 @@ int		ft_isascii(int c);
  * @return int Non-zero integer if `c` is an printable character,
  * 		if not returns 0
  */
-int		ft_isprint(int c);
+int				ft_isprint(int c);
 
 /**
  * @brief The strlen() function calculates the length of the string pointed
@@ -96,7 +99,7 @@ int		ft_isprint(int c);
  * @return size_t  The strlen() function returns the number
  * 				of bytes in the string pointed to by s.
  */
-size_t	ft_strlen(const char *s);
+size_t			ft_strlen(const char *s);
 
 /**
  * @brief fills the first n bytes of the memory area
@@ -107,7 +110,7 @@ size_t	ft_strlen(const char *s);
  * @param n The size in bytes of the memory area to be fulfilled
  * @return void* a pointer to the memory area s
  */
-void	*ft_memset(void *s, int c, size_t n);
+void			*ft_memset(void *s, int c, size_t n);
 
 /**
  * @brief erases the data in the n bytes of the memory
@@ -117,7 +120,7 @@ void	*ft_memset(void *s, int c, size_t n);
  * @param s The memory area pointer. (Returned by malloc or normal arrays)
  * @param n The size in bytes of the memory area to be erased
  */
-void	ft_bzero(void *s, size_t n);
+void			ft_bzero(void *s, size_t n);
 
 /**
  * @brief copies n bytes from memory area src to
@@ -129,7 +132,7 @@ void	ft_bzero(void *s, size_t n);
  * @param n Number of bytes to copy
  * @return void* Returns a pointer to dest
  */
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void			*ft_memcpy(void *dest, const void *src, size_t n);
 
 /**
  * @brief The memmove() function copies n bytes from memory area src to
@@ -140,7 +143,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
  * @param n Number of bytes to copy
  * @return void* Returns a pointer to dest.
  */
-void	*ft_memmove(void *dest, const void *src, size_t n);
+void			*ft_memmove(void *dest, const void *src, size_t n);
 
 /**
  * @brief copies up to size - 1 characters from the
@@ -152,7 +155,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
  * @param size The size in bytes to copy
  * @return length of the src string
  */
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 
 /**
  * @brief appends the NUL-terminated string src to the end of dst.
@@ -164,7 +167,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
  * @param size The size in bytes to append
  * @return the sum of the length of dst and src
  */
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
+size_t			ft_strlcat(char *dst, const char *src, size_t size);
 
 /**
  * @brief If c is a lowercase letter, returns its uppercase equivalent
@@ -172,7 +175,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
  * @param c
  * @return int
  */
-int		ft_toupper(int c);
+int				ft_toupper(int c);
 
 /**
  * @brief If c is a uppercase letter, returns its lowercase equivalent
@@ -180,7 +183,7 @@ int		ft_toupper(int c);
  * @param c
  * @return int
  */
-int		ft_tolower(int c);
+int				ft_tolower(int c);
 
 /**
  * @brief Returns a pointer to the first occurrence
@@ -190,7 +193,7 @@ int		ft_tolower(int c);
  * @param c Character to point
  * @return char*
  */
-char	*ft_strchr(const char *s, int c);
+char			*ft_strchr(const char *s, int c);
 
 /**
  * @brief Returns a pointer to the last occurrence
@@ -200,7 +203,7 @@ char	*ft_strchr(const char *s, int c);
  * @param c Character to point
  * @return char*
  */
-char	*ft_strrchr(const char *s, int c);
+char			*ft_strrchr(const char *s, int c);
 
 /**
  * @brief The  strcmp()  function compares the two strings s1 and s2.
@@ -216,7 +219,7 @@ char	*ft_strrchr(const char *s, int c);
  * @param n Bytes to compare
  * @return int
  */
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
  * @brief The  memchr()  function  scans  the  initial n bytes of
@@ -231,7 +234,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
  *		if the character does  not  occur
  *		in the given memory area.
  */
-void	*ft_memchr(const void *s, int c, size_t n);
+void			*ft_memchr(const void *s, int c, size_t n);
 
 /**
  * @brief compares the first n bytes (each interpreted as unsigned char) of
@@ -250,7 +253,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
  *
  *		If n is zero, the return value is zero.
  */
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
+int				ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /**
  * @brief locates the first occurrence of the null-terminated string little
@@ -268,7 +271,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
  *		otherwise a pointer to the first character of the
  *		first occurrence of little is returned.
  */
-char	*ft_strnstr(const char *big, const char *little, size_t len);
+char			*ft_strnstr(const char *big, const char *little, size_t len);
 
 /**
  * @brief converts the initial portion of the string pointed to by nptr to int.
@@ -282,7 +285,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
  * @param nptr String to be converted to a number
  * @return int The converted value.
  */
-int		ft_atoi(const char *nptr);
+int				ft_atoi(const char *nptr);
+long long int	ft_atol(const char *nptr);
 
 /**
  * @brief allocates memory for an array of nmemb elements of size bytes each
@@ -302,7 +306,7 @@ int		ft_atoi(const char *nptr);
  *		NULL may also be returned by a successful call to calloc() with nmemb
  *		or size equal to zero.
  */
-void	*ft_calloc(size_t nmemb, size_t size);
+void			*ft_calloc(size_t nmemb, size_t size);
 
 /**
  * @brief returns a pointer to a new string which is a duplicate of the string s.
@@ -314,7 +318,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
  *		It returns NULL if in‐sufficient memory was available,
  *		with errno set to indicate the cause of the error.
  */
-char	*ft_strdup(const char *s);
+char			*ft_strdup(const char *s);
 
 // PART 2
 
@@ -331,7 +335,7 @@ char	*ft_strdup(const char *s);
  *
  * @return char* The substring. NULL if the allocation fails.
  */
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
 
 /**
  * @brief Allocates (with malloc(3)) and returns a new
@@ -344,7 +348,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
  * @param s2 The suffix string.
  * @return char* The new string. NULL if the allocation fails.
  */
-char	*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoin(char const *s1, char const *s2);
 
 /**
  * @brief Allocates (with malloc(3)) and returns a copy of ’s1’
@@ -355,7 +359,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
  * @param set The reference set of characters to trim.
  * @return char* The trimmed string. NULL if the allocation fails.
  */
-char	*ft_strtrim(char const *s1, char const *set);
+char			*ft_strtrim(char const *s1, char const *set);
 
 /**
  * @brief Allocates (with malloc(3)) and returns an array
@@ -368,7 +372,7 @@ char	*ft_strtrim(char const *s1, char const *set);
  * @return char** The array of new strings resulting from the split.
  * 		NULL if the allocation fails.
  */
-char	**ft_split(char const *s, char c);
+char			**ft_split(char const *s, char c);
 
 /**
  * @brief Allocates (with malloc(3)) and returns a string
@@ -379,7 +383,7 @@ char	**ft_split(char const *s, char c);
  * @return char* The string representing the integer.
  *		NULL if the allocation fails.
  */
-char	*ft_itoa(int n);
+char			*ft_itoa(int n);
 
 /**
  * @brief Applies the function ’f’ to each character of the
@@ -393,7 +397,7 @@ char	*ft_itoa(int n);
  * 		of ’f’. Returns NULL if the allocation fails.
 
  */
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /**
  * @brief Applies the function ’f’ on each character of
@@ -404,7 +408,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * @param s The string on which to iterate.
  * @param f The function to apply to each character.
  */
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 /**
  * @brief Outputs the character ’c’ to the given file descriptor.
@@ -413,7 +417,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
  * @param fd The file descriptor on which to write.
  * @return Number of written bytes
  */
-int		ft_putchar_fd(char c, int fd);
+int				ft_putchar_fd(char c, int fd);
 
 /**
  * @brief Outputs the string ’s’ to the given file descriptor.
@@ -422,7 +426,7 @@ int		ft_putchar_fd(char c, int fd);
  * @param fd  The file descriptor on which to write.
  * @return Number of written bytes
  */
-int		ft_putstr_fd(char *s, int fd);
+int				ft_putstr_fd(char *s, int fd);
 
 /**
  * @brief Outputs the string ’s’ to the
@@ -431,7 +435,7 @@ int		ft_putstr_fd(char *s, int fd);
  * @param s The string to output.
  * @param fd The file descriptor on which to write.
  */
-void	ft_putendl_fd(char *s, int fd);
+void			ft_putendl_fd(char *s, int fd);
 
 /**
  * @brief Outputs the integer ’n’ to the given file descriptor.
@@ -439,19 +443,22 @@ void	ft_putendl_fd(char *s, int fd);
  * @param n The integer to output.
  * @param fd  The file descriptor on which to write.
  */
-void	ft_putnbr_fd(int n, int fd);
+void			ft_putnbr_fd(int n, int fd);
 
-void	ft_mtxiteri(char **mtx, void (*f) (unsigned int, unsigned int, char *));
-char	**ft_mtxdup(char **mtx, size_t rows);
-char	**ft_mtxpush(char **mtx, char *string);
-int		ft_mtxlen(char **mtx);
-char	*ft_strljoin(char const *s1, char const *s2, int bytes);
+void			ft_mtxiteri(
+					char **mtx,
+					void (*f) (unsigned int, unsigned int, char *)
+					);
+char			**ft_mtxdup(char **mtx, size_t rows);
+char			**ft_mtxpush(char **mtx, char *string);
+int				ft_mtxlen(char **mtx);
+char			*ft_strljoin(char const *s1, char const *s2, int bytes);
 
 /******************************************************************************\
 * GET_NEXT_LINE																   *
 \******************************************************************************/
 
-char	*gnl_strljoin(char *s1, char const *s2, int bytes);
+char			*gnl_strljoin(char *s1, char const *s2, int bytes);
 
 /**
  * @brief Write a function that returns a line read from a
@@ -464,7 +471,7 @@ char	*gnl_strljoin(char *s1, char const *s2, int bytes);
  *      NULL: there is nothing else to read, or an error
  *      occurred
  */
-char	*get_next_line(int fd, const int BUFFER_SIZE);
+char			*get_next_line(int fd, const int BUFFER_SIZE);
 
 /******************************************************************************\
 * FT_PRINTF																	   *
@@ -479,26 +486,26 @@ typedef struct s_slot
 	int		length;
 }	t_slot;
 
-int		ft_printf(const char *str, ...);
-int		ft_fprintf(int fd, const char *str, ...);
-int		deal_args(t_slot finded, va_list args, int printed, int fd);
+int				ft_printf(const char *str, ...);
+int				ft_fprintf(int fd, const char *str, ...);
+int				deal_args(t_slot finded, va_list args, int printed, int fd);
 
-int		ft_putchar(char c);
-int		ft_putstrn(char	*str, int n);
-int		ft_putstrn_fd(char *str, int n, int fd);
-int		ft_putstr(char	*str);
-int		ft_putnbase(unsigned long long nb, char *base);
-int		ft_putnbase_fd(unsigned long long nb, char *base, int fd);
+int				ft_putchar(char c);
+int				ft_putstrn(char	*str, int n);
+int				ft_putstrn_fd(char *str, int n, int fd);
+int				ft_putstr(char	*str);
+int				ft_putnbase(unsigned long long nb, char *base);
+int				ft_putnbase_fd(unsigned long long nb, char *base, int fd);
 
-int		deal_with_c(char arg, int fd);
-int		deal_with_d(int arg, int fd);
-int		deal_with_i(int arg, int fd);
-int		deal_with_p(long long int arg, int fd);
-int		deal_with_s(char *arg, int fd);
-int		deal_with_u(unsigned int arg, int fd);
-int		deal_with_x(unsigned int arg, int fd);
-int		deal_with_x_upper(unsigned int arg, int fd);
-int		deal_with_percent(char arg, int fd);
+int				deal_with_c(char arg, int fd);
+int				deal_with_d(int arg, int fd);
+int				deal_with_i(int arg, int fd);
+int				deal_with_p(long long int arg, int fd);
+int				deal_with_s(char *arg, int fd);
+int				deal_with_u(unsigned int arg, int fd);
+int				deal_with_x(unsigned int arg, int fd);
+int				deal_with_x_upper(unsigned int arg, int fd);
+int				deal_with_percent(char arg, int fd);
 
 /**
  * @brief Checks if a determined character is a printf conversion
@@ -506,7 +513,7 @@ int		deal_with_percent(char arg, int fd);
  * @param c char
  * @return int 1 or 0
  */
-int		ft_isconversion(char c);
+int				ft_isconversion(char c);
 
 /**
  * @brief Checks if a string is made out of digits only
@@ -514,7 +521,7 @@ int		ft_isconversion(char c);
  * @param str string
  * @return int 1 or 0
  */
-int		ft_strdigit(char *str);
+int				ft_strdigit(char *str);
 
 /**
  * @brief Returns the character `c` found position inside the string `s`
@@ -523,7 +530,7 @@ int		ft_strdigit(char *str);
  * @param c char
  * @return int position or -1
  */
-int		ft_strchri(const char *s, int c);
+int				ft_strchri(const char *s, int c);
 
 /**
  * @brief Find a slot inside a string
@@ -534,7 +541,7 @@ int		ft_strchri(const char *s, int c);
  * 			the initial position, the final position of the slot,
  * 			and the length (including % and conversion)
  */
-t_slot	get_slot(char *string, int starts);
+t_slot			get_slot(char *string, int starts);
 
 /**
  * @brief Reset a slot
@@ -542,23 +549,23 @@ t_slot	get_slot(char *string, int starts);
  * @param item t_slot
  * @return t_slot the same slot cleared
  */
-t_slot	reset_slot(t_slot *item);
+t_slot			reset_slot(t_slot *item);
 
 /******************************************************************************\
 * FILES																		   *
 \******************************************************************************/
 
-char	*ft_read_file_fd(int fd);
-char	*ft_read_file(char *filename);
-char	*ft_pread_file(char *filename);
+char			*ft_read_file_fd(int fd);
+char			*ft_read_file(char *filename);
+char			*ft_pread_file(char *filename);
 
 /******************************************************************************\
 * LOGGER																	   *
 \******************************************************************************/
 
-void	ft_notify(char	*success_message);
-void	ft_throw_error(char	*error_message);
-void	ft_printf_mtx(char **m);
+void			ft_notify(char	*success_message);
+void			ft_throw_error(char	*error_message);
+void			ft_printf_mtx(char **m);
 
 /******************************************************************************\
 * MEMORY																	   *
@@ -570,12 +577,12 @@ enum		e_memory_actions
 	PUSH
 };
 
-void	ft_memory(enum e_memory_actions action, void *payload);
-void	ft_new_memory(void *content);
-void	ft_free_memory(void);
-void	ft_free_matrix(char **matrix);
-void	*ft_salloc(size_t size);
-void	*ft_palloc(size_t size);
+void			ft_memory(enum e_memory_actions action, void *payload);
+void			ft_new_memory(void *content);
+void			ft_free_memory(void);
+void			ft_free_matrix(char **matrix);
+void			*ft_salloc(size_t size);
+void			*ft_palloc(size_t size);
 
 /******************************************************************************\
 * COMING																	   *
