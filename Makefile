@@ -41,7 +41,8 @@ $(OBJS_DIR)/$(MANDATORY_DIR)/%.o: $(SRC_DIR)/$(MANDATORY_DIR)/%.c
 	$(CC) $(CCF_STRICT) $(CCF_INCL_MANDATORY) -c $< -o $@
 
 debug: $(LIBFT)
-	$(CC) $(CCF_DEBUG) $(CCF_INCL_MANDATORY) $(SRCS_MANDATORY) $(LIBS) -o $(NAME)
+	@echo "Compiling..."
+	@$(CC) $(CCF_DEBUG) $(CCF_INCL_MANDATORY) $(SRCS_MANDATORY) $(LIBS) -o $(NAME)
 
 rebuild:
 	@make all -C $(LIBFT_DIR) --no-print-directory
