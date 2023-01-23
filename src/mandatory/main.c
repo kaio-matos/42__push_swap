@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:36:18 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/21 11:54:33 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/23 19:21:46 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ int	main(int argc, char **argv)
 	char		**stack;
 
 	handle_program_validation(argc, argv);
-	ps = salloc(sizeof(t_push_swap));
-	if (!ps)
-		ft_exterr("malloc");
+	ps = ft_salloc(sizeof(t_push_swap));
 	handle_stk_fill(&ps->a, ++argv);
 	ft_stkprint(ps->a);
 }
