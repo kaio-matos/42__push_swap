@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:36:18 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/23 19:21:46 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/23 19:58:21 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,13 @@ void	handle_program_validation(int argc, char **argv)
 
 void	handle_stk_fill(t_stack **a, char **stack)
 {
+	int	length;
+
 	ft_stkinit(a);
-	while (*stack)
+	length = ft_mtxlen(stack) - 1;
+	while (length >= 0)
 	{
-		ft_stkpush(*a, new_int(ft_atoi(*stack)));
-		stack++;
+		ft_stkpush(*a, new_int(ft_atoi(stack[length])));
+		length--;
 	}
 }
