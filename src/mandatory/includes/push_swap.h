@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/24 20:14:01 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/24 20:14:08 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,6 +252,8 @@ t_bool	rrr(t_push_swap *ps);
 int		*new_int(int value);
 int		get_int(void *pointer);
 t_bool	and(t_bool one, t_bool two);
+t_bool	is_stkascend(t_stack **stack);
+t_stack	*stkcpy(t_stack **stack);
 
 /******************************************************************************\
 * LOG																		   *

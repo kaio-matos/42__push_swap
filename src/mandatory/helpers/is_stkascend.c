@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stkpeek.c                                       :+:      :+:    :+:   */
+/*   is_stkascend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 19:41:38 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/23 22:00:33 by kmatos-s         ###   ########.fr       */
+/*   Created: 2023/01/23 21:00:30 by kmatos-s          #+#    #+#             */
+/*   Updated: 2023/01/24 19:40:02 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	*ft_stkpeek_head(t_stack *stack)
+t_bool	is_stkascend(t_stack **stack)
 {
-	if (!stack->head)
-		return (NULL);
-	return (stack->head->content);
+	t_stack	*new;
+	int		prev;
+
+	new = stkcpy(stack);
+	while (new->head)
+	{
+		prev = get_int(ft_stkpeek_head(new));
+		ft_stkpop(new, &free);
+		if (ft_stkpeek_head(new) && prev > get_int(ft_stkpeek_head(new)))
+		{
+			ft_stkclear(new, &free);
+			return (FALSE);
+		}
+	}
+	ft_stkclear(new, &free);
+	return (TRUE);
 }
 
-void	*ft_stkpeek_foot(t_stack *stack)
-{
-	if (!stack->foot)
-		return (NULL);
-	return (stack->foot->content);
-}
