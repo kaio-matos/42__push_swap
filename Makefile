@@ -25,8 +25,9 @@ C_STACK = stack/ft_stkclear.c stack/ft_stkinit.c stack/ft_stkis_empty.c stack/ft
 C_OPERATIONS = operations/push.c operations/rotate.c operations/swap.c
 C_HELPERS = helpers/int.c helpers/helpers.c helpers/is_stkascend.c helpers/stkcpy.c
 C_LOG = log/debug_log.c log/error/ft_exterr.c log/error/ft_prterr.c
+C_VALIDATION = validation/v__program.c validation/v__push_swap.c
 
-C_FILES_MANDATORY	= main.c $(C_LINKED_LISTS) $(C_DOUBLY_LINKED_LISTS) $(C_STACK) $(C_OPERATIONS) $(C_HELPERS) $(C_LOG)
+C_FILES_MANDATORY	= main.c $(C_LINKED_LISTS) $(C_DOUBLY_LINKED_LISTS) $(C_STACK) $(C_OPERATIONS) $(C_HELPERS) $(C_LOG) $(C_VALIDATION)
 FILES_MANDATORY		= $(addprefix $(MANDATORY_DIR)/,$(C_FILES_MANDATORY))
 SRCS_MANDATORY		= $(addprefix src/,$(FILES_MANDATORY))
 OBJS_MANDATORY		= $(addprefix $(OBJS_DIR)/,$(FILES_MANDATORY:.c=.o))
