@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exterr.c                                        :+:      :+:    :+:   */
+/*   debug_log.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/21 10:59:22 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/21 11:19:48 by kmatos-s         ###   ########.fr       */
+/*   Created: 2023/01/24 19:42:28 by kmatos-s          #+#    #+#             */
+/*   Updated: 2023/01/24 20:13:06 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	ft_exterr(char *message)
+int	debug_log(const char *str, ...)
 {
-	ft_prterr(message);
-	exit(EXIT_FAILURE);
+	int		printed;
+	va_list	args;
+
+	if (!VERBOSE)
+		return (0);
+	va_start(args, str);
+	printed = ft_vprintf(str, args);
+	va_end(args);
+	return (printed);
 }
 
-void	ft_exterra(char *message, char *argument, int errno)
+int	fdebug_log(int fd, const char *str, va_list args)
 {
-	ft_prterra(message, argument);
-	exit(errno);
+	int		printed;
+
+	if (!VERBOSE)
+		return (0);
+	printed = ft_vfprintf(fd, str, args);
+	return (printed);
 }

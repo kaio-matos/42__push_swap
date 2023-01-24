@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/21 11:17:39 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/24 20:14:01 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,13 +254,15 @@ int		get_int(void *pointer);
 t_bool	and(t_bool one, t_bool two);
 
 /******************************************************************************\
-* ERROR																		   *
+* LOG																		   *
 \******************************************************************************/
 
 
-void	ft_prterr(char *message);
-void	ft_prterra(char *message, char *argument);
-void	ft_exterr(char *message);
-void	ft_exterra(char *message, char *argument, int errno);
+int		debug_log(const char *str, ...);
+int		fdebug_log(int fd, const char *str, va_list args);
+void	ft_prterr(char *message, ...);
+void	ft_vprterr(char *message, va_list args);
+void	ft_exterr(char *message, ...);
+void	ft_exterra(int errno, char *message, ...);
 
 #endif

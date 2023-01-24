@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 15:44:33 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/23 20:55:40 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/24 19:52:01 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -487,7 +487,9 @@ typedef struct s_slot
 }	t_slot;
 
 int				ft_printf(const char *str, ...);
+int				ft_vprintf(const char *str, va_list args);
 int				ft_fprintf(int fd, const char *str, ...);
+int				ft_vfprintf(int fd, const char *str, va_list args);
 int				deal_args(t_slot finded, va_list args, int printed, int fd);
 
 int				ft_putchar(char c);
