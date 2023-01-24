@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 20:32:17 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/21 10:50:53 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/24 20:29:44 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_bool	rb(t_push_swap *ps)
 
 t_bool	rr(t_push_swap *ps)
 {
-	if (rotate(ps->a) && rotate(ps->b)) // TODO: Danger operation, can cause some issue by not executing the second operation
+	if (and(rotate(ps->a), rotate(ps->b)))
 		return (TRUE);
 	ft_printf("rr\n");
 	return (FALSE);
