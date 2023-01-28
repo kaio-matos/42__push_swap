@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:36:18 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/24 20:27:40 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/27 22:08:27 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ int	main(int argc, char **argv)
 	v__program(argc, argv);
 	ps = ft_salloc(sizeof(t_push_swap));
 	handle_stk_fill(&ps->a, ++argv);
+	ft_stkinit(&ps->b);
 	v__push_swap(ps);
+	push_swap(ps);
+	ft_stkclear(ps->a, &free);
+	ft_stkclear(ps->b, &free);
+	free(ps);
 }
 
 void	handle_stk_fill(t_stack **a, char **stack)

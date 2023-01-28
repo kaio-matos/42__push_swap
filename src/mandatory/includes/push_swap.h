@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/24 20:28:05 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/27 22:00:15 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 # include <linked_list.h>
 # include <libft.h>
 
-#define ERROR "Error\n"
+# define ERROR "Error\n"
+# define NULL_BOX -9999
+# define DECIMAL_LENGTH 10
 
 typedef enum	e_bool
 {
@@ -113,6 +115,8 @@ typedef struct s_push_swap
 	t_stack	*a;
 	t_stack	*b;
 }	t_push_swap;
+
+void	push_swap(t_push_swap *ps);
 
 /******************************************\
 * OPERATIONS							   *
@@ -244,6 +248,41 @@ t_bool	rrb(t_push_swap *ps);
  * rra and rrb at the same time
 */
 t_bool	rrr(t_push_swap *ps);
+
+/******************************************\
+* ALGORITHMS							   *
+\******************************************/
+
+void	init_boxes(int **boxes);
+void	clear_boxes(int **boxes);
+void	append_to_boxes(int *box, int val);
+void	find_box_in_stack(int box_value, t_push_swap *ps, char c);
+void	fill_boxes(int **boxes, t_push_swap *ps);
+
+/**
+ * Count Sort
+ *
+ * Count sort works only in numbers inside the range of 0 to 9.
+ * Basically use index values and assign each number to your respectively index
+ *
+ * Example:
+ * Given the following list: 1 3 5 1
+ * 0 -
+ * 1 - 1 1
+ * 2 -
+ * 3 - 3
+ * 4 -
+ * 5 - 5
+ * ....
+*/
+void	a__countsort(t_push_swap *ps);
+
+/******************************************\
+* SORT									   *
+\******************************************/
+
+void	s__small_stack(t_push_swap *ps);
+void	s__big_stack(t_push_swap *ps);
 
 /******************************************\
 * VALIDATION							   *
