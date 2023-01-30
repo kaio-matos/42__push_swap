@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 19:55:34 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/23 21:29:27 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/28 09:23:34 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ t_stack	*stkcpy(t_stack **stack)
 		ft_stkpush(copy, new_int(get_int(ft_stkpeek_head(temp))));
 		ft_stkpop(temp, &free);
 	}
-	free(*stack);
+	ft_stkclear(temp, &free);
+	ft_stkclear(*stack, &free);
 	*stack = old;
 	return (copy);
 }

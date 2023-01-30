@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 20:32:17 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/24 20:29:44 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/30 19:45:48 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ t_bool	rotate(t_stack *stack)
 	ft_stkpush(stack, new_int(head_content));
 	while (placeholder->head)
 		send(placeholder, stack);
+	free(placeholder);
 	return (FALSE);
 }
 
@@ -93,5 +94,6 @@ t_bool	reverse_rotate(t_stack *stack)
 	while (placeholder->head)
 		send(placeholder, stack);
 	ft_stkpush(stack, new_int(foot_content));
+	free(placeholder);
 	return (FALSE);
 }

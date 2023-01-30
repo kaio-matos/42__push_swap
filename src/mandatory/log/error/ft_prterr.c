@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 10:59:22 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/24 20:12:24 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/28 10:52:02 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	ft_vprterr(char *message, va_list args)
 	ft_putstr_fd(SHELL_R, STDERR_FILENO);
 	ft_fprintf(STDERR_FILENO, ERROR);
 	fdebug_log(STDERR_FILENO, message, args);
-	ft_putstr_fd(SHELL_R, STDERR_FILENO);
+	ft_putstr_fd(SHELL_RC, STDERR_FILENO);
 }

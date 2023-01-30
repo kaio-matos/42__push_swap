@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/27 22:00:15 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/28 12:00:31 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ typedef struct s_push_swap
 }	t_push_swap;
 
 void	push_swap(t_push_swap *ps);
+void	free_program(t_push_swap *ps);
 
 /******************************************\
 * OPERATIONS							   *
@@ -253,11 +254,10 @@ t_bool	rrr(t_push_swap *ps);
 * ALGORITHMS							   *
 \******************************************/
 
-void	init_boxes(int **boxes);
-void	clear_boxes(int **boxes);
-void	append_to_boxes(int *box, int val);
+void	init_boxes(t_list *boxes[DECIMAL_LENGTH]);
+void	fill_boxes(t_list *boxes[DECIMAL_LENGTH], t_push_swap *ps);
+void	clear_boxes(t_list *boxes[DECIMAL_LENGTH]);
 void	find_box_in_stack(int box_value, t_push_swap *ps, char c);
-void	fill_boxes(int **boxes, t_push_swap *ps);
 
 /**
  * Count Sort
@@ -311,5 +311,6 @@ void	ft_prterr(char *message, ...);
 void	ft_vprterr(char *message, va_list args);
 void	ft_exterr(char *message, ...);
 void	ft_exterra(int errno, char *message, ...);
+void	safely_throw_error(t_push_swap *ps, char *message, ...);
 
 #endif
