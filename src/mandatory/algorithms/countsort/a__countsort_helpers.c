@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 21:54:15 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/30 19:29:03 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:47:55 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	fill_boxes(t_list *boxes[DECIMAL_LENGTH], t_push_swap *ps)
 	while (ps->a->head)
 	{
 		value = get_int(ft_stkpeek_head(ps->a));
-		if (!boxes[value]->content)
+		if (boxes[value]->content == NULL)
 		{
 			ft_lstdelone(boxes[value], &free);
 			boxes[value] = ft_lstnew(new_int(value));
@@ -53,28 +53,6 @@ void	clear_boxes(t_list *boxes[DECIMAL_LENGTH])
 		i++;
 	}
 }
-
-// void	append_to_box(int **box, int val)
-// {
-// 	int	*cpy;
-// 	int	i;
-
-// 	i = 0;
-// 	while (*box[i] != NULL_BOX)
-// 		i++;
-// 	cpy = ft_salloc(sizeof(int) * (i + 2));
-// 	i = 0;
-// 	while (*box[i] != NULL_BOX)
-// 	{
-// 		cpy[i] = *box[i];
-// 		i++;
-// 	}
-// 	cpy[i] = val;
-// 	cpy[i + 1] = NULL_BOX;
-// 	if (*box)
-// 		free(*box);
-// 	*box = cpy;
-// }
 
 void	find_box_in_stack(int box_value, t_push_swap *ps, char c)
 {

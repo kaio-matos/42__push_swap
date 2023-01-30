@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/28 12:00:31 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:47:54 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <libft.h>
 
 # define ERROR "Error\n"
-# define NULL_BOX -9999
 # define DECIMAL_LENGTH 10
 
 typedef enum	e_bool
