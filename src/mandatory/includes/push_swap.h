@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/30 20:47:54 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/30 21:31:34 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -298,6 +298,7 @@ int		*new_int(int value);
 int		get_int(void *pointer);
 t_bool	and(t_bool one, t_bool two);
 t_bool	is_stkascend(t_stack **stack);
+t_bool	is_stkbetween(t_stack **stack, int min, int max);
 t_stack	*stkcpy(t_stack **stack);
 
 /******************************************************************************\
