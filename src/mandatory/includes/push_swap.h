@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/30 21:31:34 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/01/31 21:51:08 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -276,6 +276,14 @@ void	find_box_in_stack(int box_value, t_push_swap *ps, char c);
 */
 void	a__countsort(t_push_swap *ps);
 
+/**
+ * Bubble Sort
+ *
+ * The idea behind bubble sort is to push the high value numbers to the end,
+ * like a bubble in a cup of water (always goes from bottom to top)
+*/
+void	a__bubblesort(t_dlist *numbers);
+
 /******************************************\
 * SORT									   *
 \******************************************/
@@ -289,6 +297,12 @@ void	s__big_stack(t_push_swap *ps);
 
 void	v__program(int argc, char **argv);
 void	v__push_swap(t_push_swap *ps);
+
+/******************************************\
+* PARSE									   *
+\******************************************/
+
+void	p__numbers_to_decimal(void);
 
 /******************************************\
 * HELPERS								   *
