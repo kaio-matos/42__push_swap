@@ -28,9 +28,10 @@ C_LOG = log/debug_log.c log/error/ft_exterr.c log/error/ft_prterr.c log/error/sa
 C_VALIDATION = validation/v__program.c validation/v__push_swap.c
 C_SORT = sort/s__small_stack.c sort/s__big_stack.c
 C_ALGORITHMS = algorithms/countsort/a__countsort.c algorithms/countsort/a__countsort_helpers.c algorithms/bubblesort/a__bubblesort.c
-C_PARSE = parse/p__numbers_to_unsigned.c
+C_PARSE = parse/p__numbers_to_unsigned.c parse/p__strarr_to_dlst.c parse/p__int_to_pair.c
+C_DICTIONARY = dictionary/pair.c dictionary/dictionary.c
 
-C_FILES_MANDATORY	= main.c push_swap.c $(C_LINKED_LISTS) $(C_DOUBLY_LINKED_LISTS) $(C_STACK) $(C_OPERATIONS) $(C_HELPERS) $(C_LOG) $(C_VALIDATION) $(C_SORT) $(C_ALGORITHMS) $(C_PARSE)
+C_FILES_MANDATORY	= main.c push_swap.c $(C_LINKED_LISTS) $(C_DOUBLY_LINKED_LISTS) $(C_STACK) $(C_OPERATIONS) $(C_HELPERS) $(C_LOG) $(C_VALIDATION) $(C_SORT) $(C_ALGORITHMS) $(C_PARSE) $(C_DICTIONARY)
 FILES_MANDATORY		= $(addprefix $(MANDATORY_DIR)/,$(C_FILES_MANDATORY))
 SRCS_MANDATORY		= $(addprefix src/,$(FILES_MANDATORY))
 OBJS_MANDATORY		= $(addprefix $(OBJS_DIR)/,$(FILES_MANDATORY:.c=.o))

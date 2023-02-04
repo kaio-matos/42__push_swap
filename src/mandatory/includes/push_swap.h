@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/31 21:51:08 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/02 21:58:51 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,6 +250,25 @@ t_bool	rrb(t_push_swap *ps);
 t_bool	rrr(t_push_swap *ps);
 
 /******************************************\
+* DICTIONARY							   *
+\******************************************/
+
+typedef struct s_pair
+{
+	int		key;
+	void	*value;
+}	t_pair;
+
+t_pair	*new_pair(int key, void *value);
+t_pair	*get_pair(void *pointer);
+void	swap_pair(t_pair *a, t_pair *b);
+void	print_pair(t_pair pair);
+
+void	dictadd(t_dlist **dict, t_pair *pair);
+t_pair	*dictfind(t_dlist *dict, int key);
+void	dictprint(t_dlist *dict);
+
+/******************************************\
 * ALGORITHMS							   *
 \******************************************/
 
@@ -303,6 +322,8 @@ void	v__push_swap(t_push_swap *ps);
 \******************************************/
 
 void	p__numbers_to_decimal(void);
+t_dlist	*p__strarr_to_dlst(char **numbers);
+t_dlist	*p__int_to_pair(t_dlist *numbers);
 
 /******************************************\
 * HELPERS								   *

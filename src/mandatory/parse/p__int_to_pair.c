@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isinteger.c                                     :+:      :+:    :+:   */
+/*   p__int_to_keyvalue.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 20:37:51 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/03 19:52:00 by kmatos-s         ###   ########.fr       */
+/*   Created: 2023/02/01 19:56:07 by kmatos-s          #+#    #+#             */
+/*   Updated: 2023/02/02 19:54:37 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <push_swap.h>
 
-int	ft_isinteger(char *string)
+t_dlist	*p__int_to_pair(t_dlist *numbers)
 {
-	long long	converted;
-	int			sign;
-	int			i;
+	t_dlist	*dict;
+	t_pair	*obj;
+	int		i;
 
-	sign = 0;
+	dict = NULL;
 	i = 0;
-	if (*string == '-')
-		sign = -1;
-	while (string[i])
+	while (numbers)
 	{
-		if (!ft_isdigit(string[i]) && string[i] != '-' && string[i] != '+')
-			return (0);
+		dictadd(&dict, new_pair(i, numbers->content));
 		i++;
+		numbers = numbers->next;
 	}
-	if ((ft_strlen(string) + sign) > MAX_INT_LENGTH)
-		return (0);
-	converted = ft_atol(string);
-	if (converted > __INT_MAX__ || converted < -(__INT_MAX__ - 1))
-		return (0);
-	return (1);
+	return (dict);
 }
