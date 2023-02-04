@@ -6,31 +6,30 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:36:18 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/03 22:00:33 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/04 11:23:20 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	handle_stk_fill(t_stack **a, char **stack);
+void	init_stacks(t_push_swap *ps, t_dlist *unsorted);
 t_dlist	*prepare(char **numbers);
-t_dlist	*reorganize_dict(t_dlist *original, t_dlist *dict);
+t_dlist	*unsort_dict(t_dlist *original, t_dlist *dict);
 
 int	main(int argc, char **argv)
 {
 	t_push_swap	*ps;
-	t_dlist		*dict_unsorted;
+	t_dlist		*unsorted_dict;
 
 	v__program(argc, argv);
 
-	dict_unsorted = prepare(++argv);
-	ft_dlstclear(&dict_unsorted, &free);
+	unsorted_dict = prepare(++argv);
 
 	ps = ft_salloc(sizeof(t_push_swap));
-	handle_stk_fill(&ps->a, ++argv);
-	ft_stkinit(&ps->b);
+	init_stacks(ps, unsorted_dict);
 	v__push_swap(ps);
 	push_swap(ps);
+	ft_dlstclear(&unsorted_dict, &free);
 	free_program(ps);
 }
 
@@ -39,21 +38,21 @@ t_dlist	*prepare(char **numbers)
 	t_dlist	*dl_sorted_numbers;
 	t_dlist	*dl_numbers;
 	t_dlist	*dict;
-	t_dlist	*dict_unsorted;
+	t_dlist	*unsorted_dict;
 
 	dl_numbers = p__strarr_to_dlst(numbers);
 	dl_sorted_numbers = p__strarr_to_dlst(numbers);
 	a__bubblesort(dl_sorted_numbers);
 	dict = p__int_to_pair(dl_sorted_numbers);
-	dict_unsorted = reorganize_dict(dl_numbers, dict);
+	unsorted_dict = unsort_dict(dl_numbers, dict);
 
 	ft_dlstclear(&dict, &free);
 	ft_dlstclear(&dl_sorted_numbers, &free);
 	ft_dlstclear(&dl_numbers, &free);
-	return (dict_unsorted);
+	return (unsorted_dict);
 }
 
-t_dlist	*reorganize_dict(t_dlist *original, t_dlist *dict)
+t_dlist	*unsort_dict(t_dlist *original, t_dlist *dict)
 {
 	t_dlist	*i_dict;
 	t_dlist	*i_dict_unsorted;
@@ -79,27 +78,15 @@ t_dlist	*reorganize_dict(t_dlist *original, t_dlist *dict)
 	return (i_dict_unsorted);
 }
 
-/**
- * -- 20 40 70 10 60 30 00
- *
- * -- 00 10 20 30 40 60 70
- *
- *         20 40 70 10 60 30 00
- *
- * value - 00 10 20 30 40 60 70
- * key   - 0  1  2  3  4  5  6
-*/
-
-void	handle_stk_fill(t_stack **a, char **stack)
+void	init_stacks(t_push_swap *ps, t_dlist *unsorted)
 {
-	int	length;
-
-	ft_stkinit(a);
-	length = ft_mtxlen(stack) - 1;
-	while (length >= 0)
+	ft_stkinit(&ps->a);
+	ft_stkinit(&ps->b);
+	unsorted = ft_dlstlast(unsorted);
+	while (unsorted)
 	{
-		ft_stkpush(*a, new_int(ft_atoi(stack[length])));
-		length--;
+		ft_stkpush(ps->a, new_int(get_pair(unsorted->content)->key));
+		unsorted = unsorted->prev;
 	}
 }
 
