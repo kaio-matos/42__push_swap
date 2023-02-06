@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/02 21:58:51 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:53:53 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -302,6 +302,15 @@ void	a__countsort(t_push_swap *ps);
  * like a bubble in a cup of water (always goes from bottom to top)
 */
 void	a__bubblesort(t_dlist *numbers);
+
+/**
+ * Radix Sort
+ *
+ * Follows the same idea as count sort,
+ * the only difference is that it takes every single digit in the number
+ * and uses count sort as a subroutine to sort based on each digit
+*/
+void	a__radixsort(t_push_swap *ps);
 
 /******************************************\
 * SORT									   *

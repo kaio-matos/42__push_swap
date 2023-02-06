@@ -27,7 +27,7 @@ C_HELPERS = helpers/int.c helpers/helpers.c helpers/is_stkascend.c helpers/is_st
 C_LOG = log/debug_log.c log/error/ft_exterr.c log/error/ft_prterr.c log/error/safely_throw_error.c
 C_VALIDATION = validation/v__program.c validation/v__push_swap.c
 C_SORT = sort/s__small_stack.c sort/s__big_stack.c
-C_ALGORITHMS = algorithms/countsort/a__countsort.c algorithms/countsort/a__countsort_helpers.c algorithms/bubblesort/a__bubblesort.c
+C_ALGORITHMS = algorithms/countsort/a__countsort.c algorithms/countsort/a__countsort_helpers.c algorithms/bubblesort/a__bubblesort.c algorithms/radixsort/a__radixsort.c
 C_PARSE = parse/p__numbers_to_unsigned.c parse/p__strarr_to_dlst.c parse/p__int_to_pair.c
 C_DICTIONARY = dictionary/pair.c dictionary/dictionary.c
 
