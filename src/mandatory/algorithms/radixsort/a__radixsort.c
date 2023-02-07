@@ -31,7 +31,7 @@ void	a__radixsort(t_push_swap *ps)
 		j = 0;
 		while (j < size)
 		{
-			if ((get_int(ft_stkpeek_head(ps->a)) >> i)&1 == 1)
+			if (((get_int(ft_stkpeek_head(ps->a)) >> i)&1) == 1)
 				ra(ps);
 			else
 				pb(ps);

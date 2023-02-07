@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:36:18 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/06 20:55:18 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/06 21:45:24 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,19 @@ int	main(int argc, char **argv)
 {
 	t_push_swap	*ps;
 	t_dlist		*unsorted_dict;
+	char		**numbers;
 
-	v__program(argc, argv);
 
-	unsorted_dict = prepare(++argv);
+	numbers = v__program(argc, argv);
+	unsorted_dict = prepare(numbers);
+	ft_free_matrix(numbers);
 
 	ps = ft_salloc(sizeof(t_push_swap));
 	init_stacks(ps, unsorted_dict);
+	ft_dlstclear(&unsorted_dict, &free);
 	v__push_swap(ps);
 	push_swap(ps);
-	while (ps->a->head)
-	{
-		print_pair(*dictfind(unsorted_dict, get_int(ft_stkpeek_head(ps->a))));
-		ft_stkpop(ps->a, &free);
-	}
-	ft_dlstclear(&unsorted_dict, &free);
+	ft_stkprint(ps->a);
 	free_program(ps);
 }
 

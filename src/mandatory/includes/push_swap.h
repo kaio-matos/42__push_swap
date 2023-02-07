@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/06 20:53:53 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/06 21:42:47 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -323,7 +323,7 @@ void	s__big_stack(t_push_swap *ps);
 * VALIDATION							   *
 \******************************************/
 
-void	v__program(int argc, char **argv);
+char	**v__program(int argc, char **argv);
 void	v__push_swap(t_push_swap *ps);
 
 /******************************************\

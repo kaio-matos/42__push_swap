@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:26:29 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/31 22:03:30 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/06 21:22:31 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	swap_void(void **value, void **new)
 
 void	a__bubblesort(t_dlist *numbers)
 {
-	void	*swap;
 	t_dlist	*saved;
 	t_dlist	*changed;
 

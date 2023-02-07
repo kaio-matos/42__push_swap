@@ -15,7 +15,6 @@
 t_dlist	*p__int_to_pair(t_dlist *numbers)
 {
 	t_dlist	*dict;
-	t_pair	*obj;
 	int		i;
 
 	dict = NULL;
