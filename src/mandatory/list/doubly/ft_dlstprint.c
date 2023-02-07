@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 20:08:05 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/17 21:50:39 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:40:09 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 
 void	ft_dlstnprint(t_dlist *list)
 {
-	if (!list) {
+	if (!list)
+	{
 		ft_printf("{ (nil) }\n");
 		return ;
 	}
-	ft_printf("{ address: %p, content: %i, prev: %p, next: %p }\n", list, *(int*)list->content, list->prev, list->next);
+	ft_printf(
+		"{ address: %p, content: %i, prev: %p, next: %p }\n",
+		list,
+		*(int*)list->content,
+		list->prev,
+		list->next
+		);
 }
 
 void	ft_dlstprint(t_dlist *list)
 {
 	t_dlist	*temp;
 
-	if (!list) {
+	if (!list)
+	{
 		ft_dlstnprint(list);
 		return ;
 	}

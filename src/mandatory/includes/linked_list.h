@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/17 21:52:13 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:58:02 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct s_list
 {
 	void			*content;
-	struct	s_list *next;
+	struct s_list	*next;
 }	t_list;
 
 /**
@@ -116,7 +116,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  *
  * @param lst The address of a pointer to a node.
  * @param f The address of the function used to iterate on the list.
- * @param del The address of the function used to delete the content of a node if needed.
+ * @param del The address of the function used to delete the content
+ * 		of a node if needed.
  * @return The new list. NULL if the allocation fails.
  */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
@@ -144,8 +145,8 @@ void	ft_lstprint(t_list *list);
 typedef struct s_dlist
 {
 	void			*content;
-	struct	s_dlist *next;
-	struct	s_dlist *prev;
+	struct s_dlist	*next;
+	struct s_dlist	*prev;
 }	t_dlist;
 
 t_dlist	*ft_dlstnew(void *content);

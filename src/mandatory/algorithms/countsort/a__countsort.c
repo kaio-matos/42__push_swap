@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:46:33 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/01/30 21:33:27 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:47:52 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	a__countsort(t_push_swap *ps)
 	if (!ft_stkis_empty(ps->b))
 		return (safely_throw_error(ps, "Bad args: Stack B wasn't empty\n"));
 	if (!is_stkbetween(&ps->a, -1, DECIMAL_LENGTH))
-		return (safely_throw_error(ps, "Bad args: The count sort algorithm only works with numbers between 0 and 9\n"));
+		return (safely_throw_error(ps, "Bad args: The count sort algorithm only\
+				works with numbers between 0 and 9\n"));
 	i = DECIMAL_LENGTH - 1;
 	init_boxes(boxes);
 	fill_boxes(boxes, ps);

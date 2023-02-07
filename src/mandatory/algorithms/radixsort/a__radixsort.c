@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a__radixsort.c                                        :+:      :+:    :+:   */
+/*   a__radixsort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 20:24:19 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/06 20:41:33 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:43:11 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	a__radixsort(t_push_swap *ps)
 		j = 0;
 		while (j < size)
 		{
-			if (((get_int(ft_stkpeek_head(ps->a)) >> i)&1) == 1)
+			if (((get_int(ft_stkpeek_head(ps->a)) >> i) & 1) == 1)
 				ra(ps);
 			else
 				pb(ps);

@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/06 21:42:47 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:58:38 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 # define ERROR "Error\n"
 # define DECIMAL_LENGTH 10
 
-typedef enum	e_bool
+typedef enum e_bool
 {
 	FALSE,
 	TRUE
-} t_bool;
+}	t_bool;
 
 /******************************************************************************\
 * STACK																		   *
@@ -155,11 +155,9 @@ t_bool	sb(t_push_swap *ps);
 */
 t_bool	ss(t_push_swap *ps);
 
-
 //
 // PUSH OPERATIONS
 //
-
 t_bool	send(t_stack *from, t_stack *to);
 
 /**
@@ -224,7 +222,6 @@ t_bool	rb(t_push_swap *ps);
  * ra and rb at the same time.
 */
 t_bool	rr(t_push_swap *ps);
-
 
 /**
  * reverse rotate a
