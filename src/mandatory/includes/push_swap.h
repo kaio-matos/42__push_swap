@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/08 21:39:23 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/09 20:49:04 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -314,7 +314,7 @@ void	a__radixsort(t_push_swap *ps);
 * SORT									   *
 \******************************************/
 
-void	s__small_stack(t_push_swap *ps);
+void	s__xs_stack(t_push_swap *ps);
 void	s__big_stack(t_push_swap *ps);
 
 /******************************************\

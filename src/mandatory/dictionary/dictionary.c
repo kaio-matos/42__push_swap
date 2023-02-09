@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 21:29:24 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/02 22:06:46 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/08 22:03:50 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,19 @@ void	dictprint(t_dlist *dict)
 			print_pair(*kv);
 		dict = dict->next;
 	}
+}
+
+void	dictclear(t_dlist **dict, void (*del)(void *))
+{
+	t_dlist	*temp;
+	t_pair	*kv;
+
+	temp = *dict;
+	while (temp)
+	{
+		kv = get_pair(temp->content);
+		del(kv->value);
+		temp = temp->next;
+	}
+	ft_dlstclear(dict, &free);
 }
