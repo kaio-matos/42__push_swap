@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:41:38 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/07 19:55:18 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/09 19:29:37 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	ft_stkprint(t_stack *stack)
 		return ;
 	}
 	ft_printf("\tstack: [\n");
-	ft_printf("\t\t");
-	ft_dlstnprint(temp);
 	while (temp)
 	{
 		ft_printf("\t\t");
