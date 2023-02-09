@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/07 19:58:38 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/08 21:39:23 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,6 +263,7 @@ void	print_pair(t_pair pair);
 
 void	dictadd(t_dlist **dict, t_pair *pair);
 t_pair	*dictfind(t_dlist *dict, int key);
+void	dictclear(t_dlist **dict, void (*del)(void *));
 void	dictprint(t_dlist *dict);
 
 /******************************************\

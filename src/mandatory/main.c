@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:36:18 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/07 19:37:47 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/08 22:05:45 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	ft_free_matrix(numbers);
 	ps = ft_salloc(sizeof(t_push_swap));
 	init_stacks(ps, unsorted_dict);
-	ft_dlstclear(&unsorted_dict, &free);
+	dictclear(&unsorted_dict, &free);
 	v__push_swap(ps);
 	push_swap(ps);
 	free_program(ps);
@@ -45,7 +45,7 @@ t_dlist	*prepare(char **numbers)
 	a__bubblesort(dl_sorted_numbers);
 	dict = p__int_to_pair(dl_sorted_numbers);
 	unsorted_dict = unsort_dict(dl_numbers, dict);
-	ft_dlstclear(&dict, &free);
+	dictclear(&dict, &free);
 	ft_dlstclear(&dl_sorted_numbers, &free);
 	ft_dlstclear(&dl_numbers, &free);
 	return (unsorted_dict);
@@ -69,7 +69,7 @@ t_dlist	*unsort_dict(t_dlist *original, t_dlist *dict)
 			{
 				ft_dlstadd_back(
 					&i_dict_unsorted,
-					ft_dlstnew(new_pair(kv->key, kv->value)));
+					ft_dlstnew(new_pair(kv->key, new_int(get_int(kv->value)))));
 				break ;
 			}
 			i_dict = i_dict->next;
