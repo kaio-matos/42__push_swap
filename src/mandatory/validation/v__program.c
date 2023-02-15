@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:24:41 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/11 11:15:36 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:57:34 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ t_bool	has_repeated_numbers(char **numbers)
 {
 	char	**temp;
 
-	while (*(++numbers))
+	while (*numbers)
 	{
 		temp = numbers;
 		while (*(++temp))
 			if (ft_atoi(*numbers) == ft_atoi(*temp))
 				return (TRUE);
+		numbers++;
 	}
 	return (FALSE);
 }
