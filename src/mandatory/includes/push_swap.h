@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/09 20:49:04 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/14 19:53:15 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ typedef struct s_push_swap
 {
 	t_stack	*a;
 	t_stack	*b;
+
+	t_dlist	*original;
 }	t_push_swap;
 
 void	push_swap(t_push_swap *ps);

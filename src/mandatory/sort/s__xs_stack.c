@@ -1,33 +1,71 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s__xs_stack.c                                   :+:      :+:    :+:   */
+/*   s__xs_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:35:47 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/09 20:05:48 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/14 21:21:20 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
+static void	handle_a_bigger_than_b(t_push_swap *ps);
+static void	handle_a_less_than_b(t_push_swap *ps);
+
 void	s__xs_stack(t_push_swap *ps)
 {
-	void	*a_content;
-	void	*b_content;
-
-	pb(ps);
-	a_content = ft_stkpeek_head(ps->a);
-	b_content = ft_stkpeek_head(ps->b);
-	if (get_int(b_content) < get_int(a_content))
+	if (ps->a->size == 2)
 	{
 		sa(ps);
-		pa(ps);
+		return ;
 	}
-	else
+	handle_a_bigger_than_b(ps);
+	handle_a_less_than_b(ps);
+}
+
+static void	handle_a_bigger_than_b(t_push_swap *ps)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = get_int(ps->original->content);
+	b = get_int(ps->original->next->content);
+	c = get_int(ps->original->next->next->content);
+	if (a > b)
 	{
-		pa(ps);
-		sa(ps);
+		if (b < c && a < c)
+			sa(ps);
+		if (b < c && a > c)
+			ra(ps);
+		if (b > c)
+		{
+			sa(ps);
+			rra(ps);
+		}
+	}
+}
+
+static void	handle_a_less_than_b(t_push_swap *ps)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = get_int(ps->original->content);
+	b = get_int(ps->original->next->content);
+	c = get_int(ps->original->next->next->content);
+	if (a < b)
+	{
+		if (b > c && a < c)
+		{
+			sa(ps);
+			ra(ps);
+		}
+		if (a > c)
+			rra(ps);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:36:18 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/09 21:55:32 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/14 21:09:03 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,17 @@ t_dlist	*unsort_dict(t_dlist *original, t_dlist *dict)
 
 void	init_stacks(t_push_swap *ps, t_dlist *unsorted)
 {
+	t_pair	*pair;
+
 	ft_stkinit(&ps->a);
 	ft_stkinit(&ps->b);
+	ps->original = NULL;
 	unsorted = ft_dlstlast(unsorted);
 	while (unsorted)
 	{
-		ft_stkpush(ps->a, new_int(get_pair(unsorted->content)->key));
+		pair = get_pair(unsorted->content);
+		ft_stkpush(ps->a, new_int(pair->key));
+		ft_dlstadd_front(&ps->original, ft_dlstnew(new_int(pair->key)));
 		unsorted = unsorted->prev;
 	}
 }
@@ -95,5 +100,6 @@ void	free_program(t_push_swap *ps)
 {
 	ft_stkclear(ps->a, &free);
 	ft_stkclear(ps->b, &free);
+	ft_dlstclear(&ps->original, &free);
 	free(ps);
 }
