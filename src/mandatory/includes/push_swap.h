@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/14 19:53:15 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:38:56 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,6 @@ typedef struct s_push_swap
 {
 	t_stack	*a;
 	t_stack	*b;
-
-	t_dlist	*original;
 }	t_push_swap;
 
 void	push_swap(t_push_swap *ps);
@@ -317,6 +315,7 @@ void	a__radixsort(t_push_swap *ps);
 \******************************************/
 
 void	s__xs_stack(t_push_swap *ps);
+void	s__sm_stack(t_push_swap *ps);
 void	s__big_stack(t_push_swap *ps);
 
 /******************************************\

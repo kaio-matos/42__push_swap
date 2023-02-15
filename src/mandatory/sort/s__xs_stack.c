@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:35:47 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/14 21:21:20 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:42:13 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static void	handle_a_bigger_than_b(t_push_swap *ps)
 	int	b;
 	int	c;
 
-	a = get_int(ps->original->content);
-	b = get_int(ps->original->next->content);
-	c = get_int(ps->original->next->next->content);
+	a = get_int(ps->a->head->content);
+	b = get_int(ps->a->head->prev->content);
+	c = get_int(ps->a->head->prev->prev->content);
 	if (a > b)
 	{
 		if (b < c && a < c)
@@ -55,9 +55,9 @@ static void	handle_a_less_than_b(t_push_swap *ps)
 	int	b;
 	int	c;
 
-	a = get_int(ps->original->content);
-	b = get_int(ps->original->next->content);
-	c = get_int(ps->original->next->next->content);
+	a = get_int(ps->a->head->content);
+	b = get_int(ps->a->head->prev->content);
+	c = get_int(ps->a->head->prev->prev->content);
 	if (a < b)
 	{
 		if (b > c && a < c)
