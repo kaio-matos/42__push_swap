@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:35:47 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/16 21:06:10 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/17 19:59:08 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	s__sm_stack(t_push_swap *ps)
 	int	a;
 	int	b;
 
-	while (ps->b->size != 2)
+	while (ps->a->size != 3)
 	{
 		if (get_int(ft_stkpeek_head(ps->a)) == 2)
 			sa(ps);
