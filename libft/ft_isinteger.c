@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 20:37:51 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/14 21:03:55 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/16 21:23:41 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	is_integer(char *number, int sign)
 {
 	long long	converted;
 
+	if (is_less_or_plus(number[0]) && !ft_isdigit(number[1]))
+		return (0);
 	if ((ft_strlen(number) + sign) > MAX_INT_LENGTH)
 		return (0);
 	converted = ft_atol(number);
@@ -38,13 +40,12 @@ int	ft_isinteger(char *string)
 
 	sign = 0;
 	i = 0;
-	if (*string == '-')
+	if (string[i] == '-')
 		sign = -1;
-	while (string[i] == '-' || string[i] == '+')
+	while (string[i] && is_less_or_plus(string[i]))
 	{
-		if (is_less_or_plus(string[i]))
-			if (is_less_or_plus(string[i - 1]) || !string[i + 1])
-				return (0);
+		if (i != 0 && (is_less_or_plus(string[i - 1]) || !string[i + 1]))
+			return (0);
 		i++;
 	}
 	while (string[i])
