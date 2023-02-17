@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 20:24:41 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/15 19:57:34 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/16 21:29:23 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**v__program(int argc, char **argv)
 	char	**temp;
 
 	if (argc <= 1)
-		ft_exterr("Missing arguments\n");
+		exit(0);
 	if (argc == 2)
 		numbers = ft_split(argv[1], ' ');
 	else
