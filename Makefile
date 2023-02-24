@@ -3,11 +3,10 @@ OBJS_DIR			= objects
 SRC_DIR				= src
 MANDATORY_DIR		= mandatory
 BONUS_DIR			= bonus
-VERBOSE				= 0
 
 CC					= cc
-CCF_STRICT			= -Wall -Wextra -Werror -D VERBOSE=$(VERBOSE)
-CCF_DEBUG			= -g -D VERBOSE=$(VERBOSE)
+CCF_STRICT			= -Wall -Wextra -Werror
+CCF_DEBUG			= -g3 -D VERBOSE=1
 LIBFT				= $(LIBFT_DIR)/libft.a
 LIBS				= $(LIBFT)
 RM					= rm -rf
@@ -47,7 +46,6 @@ $(OBJS_DIR)/$(MANDATORY_DIR)/%.o: $(SRC_DIR)/$(MANDATORY_DIR)/%.c
 
 debug: $(LIBFT)
 	@echo "Compiling..."
-	$(eval VERBOSE = 1)
 	@$(CC) $(CCF_DEBUG) $(CCF_INCL_MANDATORY) $(SRCS_MANDATORY) $(LIBS) -o $(NAME)
 
 rebuild:

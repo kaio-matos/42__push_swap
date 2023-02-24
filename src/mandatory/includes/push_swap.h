@@ -6,7 +6,7 @@
 /*   By: kmatos-s <kmatos-s@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 01:06:58 by kmatos-s          #+#    #+#             */
-/*   Updated: 2023/02/15 19:38:56 by kmatos-s         ###   ########.fr       */
+/*   Updated: 2023/02/22 21:30:20 by kmatos-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 # define ERROR "Error\n"
 # define DECIMAL_LENGTH 10
+# ifndef VERBOSE
+#  define VERBOSE 0
+# endif
 
 typedef enum e_bool
 {
