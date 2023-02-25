@@ -29,7 +29,7 @@ function executeAsyncFile(file, args, callback = () => { }) {
 
 async function testPushSwap(stack_size) {
 	const numbers = generateNumbers(stack_size).join(' ')
-	console.log('Stack Size', numbers.length)
+	console.log('Stack Size', stack_size)
 
 	const result = String(await executeAsyncFile('./push_swap', [numbers]))
 	const checker_result =
