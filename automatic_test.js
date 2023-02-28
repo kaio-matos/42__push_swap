@@ -7,7 +7,7 @@ const generateNumbers = (stack_size = 10) => {
 	const getRandomNumber = () => Math.round(Math.random() * 10000)
 	let array = []
 
-	for (let i = 0; i <= stack_size; i++) {
+	for (let i = 0; i < stack_size; i++) {
 		let random = getRandomNumber()
 
 		do random = getRandomNumber()
@@ -51,7 +51,9 @@ async function testPushSwap(stack_size) {
 async function runTests(number) {
 	console.log('test ' + number)
 	await testPushSwap(1)
+	await testPushSwap(2)
 	await testPushSwap(3)
+	await testPushSwap(4)
 	await testPushSwap(5)
 	await testPushSwap(10)
 	await testPushSwap(50)

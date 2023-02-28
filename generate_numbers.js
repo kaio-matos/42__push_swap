@@ -2,7 +2,7 @@ const generateNumbers = (stack_size = 10) => {
 	const getRandomNumber = () => Math.round(Math.random() * 10000)
 	let array = []
 
-	for (let i = 0; i <= stack_size; i++) {
+	for (let i = 0; i < stack_size; i++) {
 		let random = getRandomNumber()
 
 		do random = getRandomNumber()
