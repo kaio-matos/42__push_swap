@@ -1,6 +1,7 @@
 const { execFile } = require('child_process')
 const stream = require('stream');
-
+const PUSH_SWAP = './push_swap'
+const CHECKER = './checker_linux'
 
 const generateNumbers = (stack_size = 10) => {
 	const getRandomNumber = () => Math.round(Math.random() * 10000)
@@ -31,10 +32,10 @@ async function testPushSwap(stack_size) {
 	const numbers = generateNumbers(stack_size).join(' ')
 	console.log('Stack Size', stack_size)
 
-	const result = String(await executeAsyncFile('./push_swap', [numbers]))
+	const result = String(await executeAsyncFile(PUSH_SWAP, [numbers]))
 	const checker_result =
 		await executeAsyncFile(
-			'./checker_linux',
+			CHECKER,
 			[numbers],
 			(process) => {
 				let stdinStream = new stream.Readable();
