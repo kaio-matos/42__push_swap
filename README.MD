@@ -48,12 +48,15 @@ To test the program execute `node automatic_test.js`
 
 ```bash
 ARG="$(shuf -i 1-100000 -n 5 | tr '\n' ' ')" && make && ./push_swap $ARG
+ARG="$(seq -100000 100000 | shuf -n 5 | tr '\n' ' ')" && make && ./push_swap $ARG # Includes in the list negative numbers
 ```
 ```bash
 ARG="$(shuf -i 1-100000 -n 100 | tr '\n' ' ')" && make && ./push_swap $ARG
+ARG="$(seq -100000 100000 | shuf -n 100 | tr '\n' ' ')" && make && ./push_swap $ARG # Includes in the list negative numbers
 ```
 ```bash
 ARG="$(shuf -i 1-100000 -n 500 | tr '\n' ' ')" && make && ./push_swap $ARG
+ARG="$(seq -100000 100000 | shuf -n 500 | tr '\n' ' ')" && make && ./push_swap $ARG # Includes in the list negative numbers
 ```
 
 
