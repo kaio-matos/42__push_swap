@@ -4,7 +4,7 @@ const PUSH_SWAP = './push_swap'
 const CHECKER = './checker_linux'
 
 const generateNumbers = (stack_size = 10) => {
-	const getRandomNumber = () => Math.round(Math.random() * 10000)
+	const getRandomNumber = () => Math.round(Math.random() * 10000) * (Math.random() <= 0.5 ? -1 : 1)
 	let array = []
 
 	for (let i = 0; i < stack_size; i++) {
